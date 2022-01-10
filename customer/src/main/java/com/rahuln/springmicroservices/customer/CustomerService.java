@@ -1,9 +1,12 @@
 package com.rahuln.springmicroservices.customer;
 
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
-public record CustomerService(CustomerRepository repository) {
+@AllArgsConstructor
+public class CustomerService {
+    private final CustomerRepository repository;
     public void registerCustomer(CustomerRegistrationRequest request) {
         Customer customer = Customer.builder()
                 .firstName(request.firstName())
